@@ -1,6 +1,6 @@
 points = [(2, 4), (4, 2)]
 
-def F(w):
+def F(w):#TrainLoss (i guess)
     return sum((w * x - y)**2 for x, y in points)
 
 

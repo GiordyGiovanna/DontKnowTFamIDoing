@@ -1,3 +1,6 @@
+import numpy as np
+
+
 # How confident are we predicting
 def score_total(w, fi):
     return w * fi
@@ -15,7 +18,7 @@ def sign(x, y):
 # y correct output 
 # w weight
 def loss(x, y, w):
-    pass
+    return (w.dot(x) - y)**2
 
 
 # How correct we are
