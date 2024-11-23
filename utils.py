@@ -1,4 +1,4 @@
-import numpy as np
+import numpy as np # np like not paying my taxes, kidding
 
 
 # How confident are we predicting
@@ -11,7 +11,7 @@ def score(feature_vec, weigth_vec):
 
 
 def sign(x, y):
-    return (x * y > 0) - (x * y < 0)
+    return (x * y > 0) - (x * y < 0) # Yes of course, why not? You can't understand it????? Me neither, it just work
 
 
 # x output

@@ -3,7 +3,7 @@ import utils as u
 
 #points = [(np.array([2]), 4), (np.array([4]), 2)]
 #d = 1 ## FUNCKING NEEDS TO BE ONE. dont know why (I think it has to be with dimentions of something)
-# oh ok, cause its a liear multiplication like in like 14 comment (fuck you)
+# oh ok, cause its a linear multiplication like in line 14 comment (fuck you)
 
 #creatingArtificial data
 true_weights = np.array([1, 2, 3, 4, 5])
@@ -12,10 +12,11 @@ points = []
 
 for i in range(10000):
     x = np.random.randn(d) # Creating a (random) d long array
-    y = true_weights.dot(x) + np.random.randn() #x1*w1 + x2*w2 .... + noise
+    y = true_weights.dot(x)# + np.random.randn() #x1*w1 + x2*w2 .... + noise
+    # If you dont add np.random.randn() you don jet the noise, ok I get it, adding the noise also changes the actual output, with noise the rigth output is not [1, 2, 3, 4, 5] but it's [1 + noise, 2 + noise ....]
     points.append((x, y))
     
-
+print(points)
 # Models: what do we compute
 
 
@@ -27,7 +28,7 @@ def dF(w):
     return sum(2*(w.dot(x) - y) * x for x, y in points) / len(points)
 
 
-def sF(w, i):#Sthocastic
+def sF(w, i):#Sthocastic - Fucking no idea what to choose
     x, y = points[i]
     return u.loss(x, y, w) 
 
@@ -59,13 +60,14 @@ def sthocasticGradientDecent(sF, sdF, d, n):
     step_size = 1
     numUpd = 0
     for t in range(1000):
-        for i in range(n):
-            value = sF(w, i)
+        for i in range(n):#Actually works fine chose points[t] each time
+        #value = sF(w, t)
             gradient = sdF(w, i) 
             numUpd += 1
             step_size = 1.0 / numUpd
             w = w - step_size * gradient
-        print("iteration {}: w = {}, F(w) = {}, gradient = {}".format(t, w, value, gradient ))
+        input("\n")
+        print("iteration {}: w = {}, gradient = {}".format(t, w, gradient ))
 
 #gradientDecent(F, dF, d)
 sthocasticGradientDecent(sF, sdF, d, len(points))
