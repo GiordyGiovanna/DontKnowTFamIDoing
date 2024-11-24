@@ -37,6 +37,13 @@ def sdF(w, i):
     x, y = points[i]
     return 2 * (w.dot(x) - y) * x
 
+
+def sdFNorm(w, i, someGreekLetter):
+    trainingLoss = sdF(w, i)
+    return trainingLoss + someGreekLetter * w
+
+
+
  
 # ------------------------------------------------------------------------------------------------------
 
@@ -66,8 +73,25 @@ def sthocasticGradientDecent(sF, sdF, d, n):
             numUpd += 1
             step_size = 1.0 / numUpd
             w = w - step_size * gradient
+        print("iteration {}: w = {}, gradient = {}".format(t, w, gradient ))
+        input("\n")
+
+
+# sthocasticGradientDecentControllingTheNorm -> very usefull
+def sthocasticGradientDecentControllingTheNorm(sdFNorm, d, n):
+    w = np.zeros(d)
+    step_size = 1
+    numUpd = 0
+    for t in range(1000):
+        gradient = sdFNorm(w, t, 0.01) 
+        numUpd += 1
+        step_size =  1.0 / numUpd
+        w = w - step_size * gradient
         input("\n")
         print("iteration {}: w = {}, gradient = {}".format(t, w, gradient ))
+# Yeah, dunno why It almost works
+
 
 #gradientDecent(F, dF, d)
-sthocasticGradientDecent(sF, sdF, d, len(points))
+#sthocasticGradientDecent(sF, sdF, d, len(points)) 
+sthocasticGradientDecentControllingTheNorm(sdFNorm, d, len(points))
