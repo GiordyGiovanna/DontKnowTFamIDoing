@@ -1,11 +1,11 @@
-import submission, util ## OKKKKKKKKKKK buddy, not strage at all.....
+import submission, utils ## OKKKKKKKKKKK buddy, not strage at all.....
 from collections import defaultdict
 
 # ok, thats what I understood: we are creating a function that defins feature vector phi, not sure how it fucking works, on it
 
 #readExamples
-trainExp = util.readExamples("names.train") # I FUCKING DO HAVE IT, not pushing it 
-devExp = util.readExamples("names.dev")
+trainExp = utils.readExamples("../Resources/names.train") # I FUCKING DO HAVE IT, not pushing it 
+devExp = utils.readExamples("../Resources/names.dev")
 
 def featureExtractor(x): #phi(x)
     phi = defaultdict(float)
@@ -20,5 +20,5 @@ def featureExtractor(x): #phi(x)
 # yeah bro, im fucking scared
 
 weights = submission.learnPredictor(trainExp, devExp, featureExtractor)
-util.outputWeigths(weights, "weights")
-util.outputErrorAnalysis(devExp, featureExtractor, weights, 'Error-analysis')
+utils.outputWeigths(weights, "weights")
+utils.outputErrorAnalysis(devExp, featureExtractor, weights, 'Error-analysis')
