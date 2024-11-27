@@ -1,7 +1,7 @@
 # I'm fucking copy this file in every shitty directory cause I hate import shit from other folders in python
 # Maybe one day I'll create a fucking init.bat/init.sh to to shit like this
 
-import numpy as np # np like not paying my taxes, kidding
+#import numpy as np # np like not paying my taxes, kidding
 
 # How confident are we predicting
 def score_total(w, fi):

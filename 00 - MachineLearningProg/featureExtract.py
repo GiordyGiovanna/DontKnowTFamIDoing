@@ -1,5 +1,6 @@
-import submission, utils ## OKKKKKKKKKKK buddy, not strage at all.....
+import submission ## OKKKKKKKKKKK buddy, not strage at all.....
 from collections import defaultdict
+import utils
 
 # ok, thats what I understood: we are creating a function that defins feature vector phi, not sure how it fucking works, on it
 
@@ -19,6 +20,6 @@ def featureExtractor(x): #phi(x)
     return phi
 # yeah bro, im fucking scared
 
-weights = submission.learnPredictor(trainExp, devExp, featureExtractor)
+weights = submission.learnPredictor(trainExp, devExp, featureExtractor) 
 utils.outputWeigths(weights, "weights")
 utils.outputErrorAnalysis(devExp, featureExtractor, weights, 'Error-analysis')
